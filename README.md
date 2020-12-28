@@ -1,5 +1,8 @@
 # vue-firebase-auth-tutorial
 
+This is the sample code that accompanies my article on how to add Authenication to your Vue Application using Firebase.
+You can view the article here which gives you step-by-step instructions on how to implement Firebase authentication.
+
 ## Project setup
 ```
 npm install
@@ -19,6 +22,3 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
