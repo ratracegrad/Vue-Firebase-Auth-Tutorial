@@ -17,7 +17,7 @@
     </div>
 </template>
 <script>
-import firebase from 'firebase';
+import db from '../db';
 
 export default {
     name: 'Register',
@@ -29,8 +29,7 @@ export default {
     },
     methods: {
         register() {
-            firebase
-                .auth()
+            db.auth()
                 .createUserWithEmailAndPassword(this.email, this.password)
                 .then(() => {
                     alert('Successfully registered! Please login.');

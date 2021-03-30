@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import db from '../db';
 
 export default {
     name: 'Home',
@@ -30,8 +30,7 @@ export default {
     },
     methods: {
         login() {
-            firebase
-                .auth()
+            db.auth()
                 .signInWithEmailAndPassword(this.email, this.password)
                 .then(() => {
                     alert('Successfully logged in');
