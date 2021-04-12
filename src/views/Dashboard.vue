@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2>Dashboard</h2>
-        <p>This page is only visible to users that are currently logged in</p>
+        <h2 class="text-center">Welcome to , Dashboard</h2>
+        <p>You are here,mean you are login .</p>
     </div>
 </template>
 

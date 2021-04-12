@@ -1,24 +1,34 @@
 <template>
     <div>
-        <form @submit.prevent="login">
-            <h2>Login</h2>
-            <input
-                type="email"
-                placeholder="Email address..."
-                v-model="email"
-            />
-            <input
-                type="password"
-                placeholder="password..."
-                v-model="password"
-            />
-            <button type="submit">Login</button>
-        </form>
+        <div class="card col-6 mx-auto">
+            <div class="card-body">
+                <form @submit.prevent="login">
+                    <h2 class="text-center my-5 title">Login</h2>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Email address..."
+                            v-model="email"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="password"
+                            placeholder="password..."
+                            v-model="password"
+                            class="form-control"
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-import firebase from 'firebase';
+import db from '../db';
 
 export default {
     name: 'Home',
@@ -30,8 +40,7 @@ export default {
     },
     methods: {
         login() {
-            firebase
-                .auth()
+            db.auth()
                 .signInWithEmailAndPassword(this.email, this.password)
                 .then(() => {
                     alert('Successfully logged in');

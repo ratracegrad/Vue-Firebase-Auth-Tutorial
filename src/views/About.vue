@@ -1,23 +1,35 @@
 <template>
     <div>
-        <form @submit.prevent="register">
-            <h2>Register</h2>
-            <input
-                type="email"
-                placeholder="Email address..."
-                v-model="email"
-            />
-            <input
-                type="password"
-                placeholder="password..."
-                v-model="password"
-            />
-            <button type="submit">Register</button>
-        </form>
+        <div class="card col-6 mx-auto">
+            <div class="card-body">
+                <form @submit.prevent="register">
+                    <h2 class="text-center my-5 title">Register</h2>
+                    <div class="form-group">
+                        <input
+                            type="email"
+                            placeholder="Email address..."
+                            v-model="email"
+                            class="form-control"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <input
+                            type="password"
+                            placeholder="password..."
+                            v-model="password"
+                            class="form-control"
+                        />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-import firebase from 'firebase';
+import db from '../db';
 
 export default {
     name: 'Register',
@@ -29,8 +41,7 @@ export default {
     },
     methods: {
         register() {
-            firebase
-                .auth()
+            db.auth()
                 .createUserWithEmailAndPassword(this.email, this.password)
                 .then(() => {
                     alert('Successfully registered! Please login.');

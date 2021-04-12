@@ -4,20 +4,19 @@
             <router-link to="/">Home</router-link> |
             <router-link to="/register">Register</router-link> |
             <router-link to="/dashboard">Dashboard</router-link> |
-            <button @click="logout">Logout</button>
+            <a class="float-right logout" @click="logout">Logout</a>
         </div>
         <router-view />
     </div>
 </template>
 
 <script>
-import firebase from 'firebase';
+import db from './db';
 
 export default {
     methods: {
         logout() {
-            firebase
-                .auth()
+            db.auth()
                 .signOut()
                 .then(() => {
                     alert('Successfully logged out');
@@ -52,8 +51,16 @@ export default {
 #nav a.router-link-exact-active {
     color: #42b983;
 }
-
-input {
-    margin-right: 20px;
+.logout {
+    color: lightblue;
+    font-size: 1rem;
+    font-weight: 400;
+    transition: 0.3s ease-in;
+    text-decoration: none;
+}
+.logout:hover {
+    color: rgb(20, 130, 149);
+    transform: scale(1.05);
+    cursor: pointer;
 }
 </style>
